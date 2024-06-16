@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import userReducer from "./user/userSlice.js";
+import themeReducer from "./theme/themeSlice.js";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -7,6 +8,7 @@ import storage from "redux-persist/lib/storage";
 // khai báo rootReducer(dùng combineReducer)
 const rootReducer = combineReducers({
   user: userReducer,
+  theme: themeReducer,
 });
 // cấu hình persistconfig
 const persistConfig = {

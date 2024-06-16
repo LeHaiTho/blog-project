@@ -4,15 +4,21 @@ import {
   DropdownDivider,
   Navbar,
   TextInput,
+  theme,
 } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
-import { FaMoon } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
 import { Avatar } from "flowbite-react";
+import { LuSunMoon } from "react-icons/lu";
+import { toggleTheme } from "../redux/theme/themeSlice";
 function Header() {
   const path = useLocation().pathname;
   const { currentUser } = useSelector((state) => state.user);
+  const { theme } = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
+
   return (
     <Navbar className="border-b-2">
       <Link
@@ -49,8 +55,13 @@ function Header() {
         </Navbar.Link>
       </Navbar.Collapse>
       <div className="flex gap-2">
-        <Button className="hidden w-12 h-10 sm:inline" color="gray" pill>
-          <FaMoon />
+        <Button
+          className="hidden w-12 h-10 sm:inline"
+          color="gray"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "dark" ? <FaMoon /> : <FaSun />}
         </Button>
         {currentUser ? (
           <Dropdown
