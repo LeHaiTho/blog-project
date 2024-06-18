@@ -1,17 +1,15 @@
 import {
+  Avatar,
   Button,
   Dropdown,
   DropdownDivider,
   Navbar,
   TextInput,
-  theme,
 } from "flowbite-react";
-import { Link, useLocation } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { Avatar } from "flowbite-react";
-import { LuSunMoon } from "react-icons/lu";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import { toggleTheme } from "../redux/theme/themeSlice";
 function Header() {
   const path = useLocation().pathname;
